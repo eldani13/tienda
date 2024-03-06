@@ -27,6 +27,7 @@ export type TSlug = {
 };
 
 export interface TImage {
+  [x: string]: any;
   _key: string;
   _type: "image";
   asset: {

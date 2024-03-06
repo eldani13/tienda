@@ -5,10 +5,12 @@ import { IProduct, TImage } from "../../lib/types/products";
 import ProductPageActions from "./ProductPageActions";
 
 interface Props {
-  imgArray: TImage[];
+  // imgArray: TImage[];
+  // product: IProduct;
+  image: TImage; // Asegúrate de que TImage esté correctamente definido
   product: IProduct;
 }
-const ImageSection: React.FC<Props> = ({ imgArray, product }) => {
+const ImageSection: React.FC<Props> = ({ image, product }) => {
   const [selectedImg, setSelectedImg] = useState(0);
   function onClickHandler(index: number) {
     setSelectedImg(index);
@@ -19,7 +21,7 @@ const ImageSection: React.FC<Props> = ({ imgArray, product }) => {
       <div className="flex flex-col items-center w-full md:w-auto">
         <div className="flex flex-grow md:ltr:mr-3 md:rtl:ml-3">
           <Image
-            src={urlFor(imgArray[selectedImg]).url()}
+            src={urlFor(image[selectedImg]).url()}
             alt="product img"
             width={450}
             height={330}
@@ -28,7 +30,7 @@ const ImageSection: React.FC<Props> = ({ imgArray, product }) => {
         </div>
 
         <div className="flex mt-4  md:p-4 w-full max-w-[350px] overflow-auto">
-          {imgArray.map((imgItem: TImage, index: number) => {
+          {image.map((imgItem: TImage, index: number) => {
             return (
               <div
                 key={imgItem._key}
