@@ -28,9 +28,9 @@ const Footer = () => {
               display: "inline",
             }}
           />
-          {locale === "en" ? "by Kehyshow" : "کهیشو"}
+          {locale === "en" ? "Vopper" : "کهیشو"}
         </div>
-        <div className="py-1">
+        {/* <div className="py-1">
           <StartQuot
             style={{
               display: "inline",
@@ -57,7 +57,7 @@ const Footer = () => {
           >
             CafeDX
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

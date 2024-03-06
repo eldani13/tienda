@@ -6,14 +6,15 @@ const Logo = () => {
   return (
     <Link href="/">
       <a className="block md:flex items-center justify-center w-full flex-grow md:flex-grow-0">
-        <Image
+        {/* <Image
           src="/images/logo.png"
           alt="zishop-logo"
           width={120}
           height={25}
           objectFit="contain"
           className="cursor-pointer md:ltr:-mr-3"
-        />
+        /> */}
+        LOGO
       </a>
     </Link>
   );

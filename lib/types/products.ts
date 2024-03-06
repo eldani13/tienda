@@ -26,17 +26,18 @@ export type TSlug = {
   current: string;
 };
 
-export type TImage = {
+export interface TImage {
   _key: string;
   _type: "image";
   asset: {
     _ref: string;
     _type: "reference";
   };
-};
+}
+
 
 export interface IProduct {
-  image: any;
+  image: TImage;
   name: string;
   slug: TSlug;
   price: number;

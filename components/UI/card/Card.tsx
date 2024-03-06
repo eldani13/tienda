@@ -12,21 +12,33 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ product }) => {
+  // Verifica si product.image está definido y no está vacío antes de intentar acceder al primer elemento
+  const imageUrl =
+    product?.image && product.image[0]
+      ? urlFor(product.image[0]).url()
+      : undefined;
+
   return (
     <div className="col-span-6 sm:col-span-3 md:col-span-4 lg:col-span-3 2xl:col-span-2 shadow-xl my-1 md:my-4 ltr:mr-2 rtl:ml-1 md:mx-6  bg-palette-card rounded-xl flex relative">
       <Link
-        href={`/${product.category[0]}/${product.category[1]}/${product.category[2]}/${product.slug.current}`}
+        // Verifica si product.category está definido y tiene al menos 3 elementos antes de acceder a ellos
+        href={`/${product.category && product.category[0]}/${
+          product.category && product.category[1]
+        }/${product.category && product.category[2]}/${product.slug.current}`}
       >
         <a className="flex md:items-center md:flex-col relative w-full">
           <div className="w-1/2 md:w-full relative bg-slate-400/30 px-1 md:px-6 py-2 rounded-bl-xl rounded-tl-xl md:rounded-tr-xl md:rounded-bl-none rtl:order-2 rtl:md:order-none flex flex-col justify-between items-center">
             <div className="flex items-center h-full">
-              <Image
-                src={urlFor(product?.image[0]).url()}
-                width={280}
-                height={300}
-                alt={product.name}
-                className=" drop-shadow-xl object-contain hover:scale-110 transition-transform duration-300 ease-in-out !py-2 "
-              />
+              {/* Usa la variable imageUrl en lugar de acceder directamente a product.image */}
+              {imageUrl && (
+                <Image
+                  src={imageUrl}
+                  width={280}
+                  height={300}
+                  alt={product.name}
+                  className=" drop-shadow-xl object-contain hover:scale-110 transition-transform duration-300 ease-in-out !py-2"
+                />
+              )}
             </div>
             {product?.discount ? (
               <span className="w-8 sm:w-auto block absolute -top-2 -right-2">

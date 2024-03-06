@@ -42,6 +42,8 @@ const menuItems = [
           "motorola",
           "lg",
           "sony",
+          "redmi",
+          "otros"
         ],
       },
       {
@@ -71,12 +73,13 @@ const menuItems = [
           "tShirt",
           "shoes",
           "scarf",
+          "jacket"
         ],
       },
       {
         title: "men",
         icon: IoShirtSharp,
-        subtitles: ["shirt", "pants", "tie", "tShirt", "shoes", "jeans"],
+        subtitles: ["shirt", "pants", "tie", "tShirt", "shoes", "jeans",],
       },
       {
         title: "child",

@@ -1,5 +1,10 @@
 export interface ICategoryPathsParams {
   category: string;
+  subCategory: string; // Agregar la propiedad subCategory
+  title: string;
+  slug: {
+    current: string;
+  };
 }
 
 export interface ISubCategoryPathsParams {
